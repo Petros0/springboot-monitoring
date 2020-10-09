@@ -13,3 +13,9 @@ services:
     ports:
       - 9090:9090
     network_mode: host
+#    networks:
+#      - elk
+#
+#networks:
+#  elk:
+#    driver: bridge

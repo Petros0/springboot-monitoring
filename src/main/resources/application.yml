@@ -20,9 +20,19 @@ spring:
 logging:
   file:
     name: springboot-monitoring.log
-  level.root: INFO
+  level:
+    root: INFO
+    io.micrometer.elastic: debug
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+  metrics:
+    export:
+      elastic:
+        user-name: elastic
+        password: changeme
+        step: 10s
+        auto-create-index: true
+        index: bootmetrics
