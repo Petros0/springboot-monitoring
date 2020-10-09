@@ -1,0 +1,15 @@
+version: '3.2'
+
+services:
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - type: bind
+        source: ./prometheus/prometheus.yml
+        target: /usr/share/prometheus/prometheus.yml
+        read_only: true
+    command:
+      - "--config.file=/usr/share/prometheus/prometheus.yml"
+    ports:
+      - 9090:9090
+    network_mode: host
