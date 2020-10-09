@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+<!--    brings the configuration from Spring and configures also the logback -->
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <appender name="STASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>localhost:5000</destination>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
+        <keepAliveDuration>5 minutes</keepAliveDuration>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STASH"/>
+    </root>
+
+</configuration>
